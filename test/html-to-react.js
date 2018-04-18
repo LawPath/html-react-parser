@@ -109,6 +109,21 @@ describe('html-to-react', function() {
                 );
             });
 
+            it('remove the element if replace is marked for removal', function() {
+                var html = mocks.html.complex;
+                var reactElement = Parser(html, {
+                    replace: function(node) {
+                        if (node.name === 'title') {
+                            return React.createElement('title', {'remove': true});
+                        }
+                    }
+                });
+                assert.equal(
+                    render(reactElement),
+                    html.replace('<title>Title</title>', '')
+                );
+            });
+
             it('does not override the element if replace is invalid', function() {
                 var html = mocks.html.complex;
                 var reactElement = Parser(html, {
