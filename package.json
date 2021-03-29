@@ -1,6 +1,6 @@
 {
   "name": "html-react-parser",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "An HTML to React parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
@@ -13,9 +13,10 @@
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "prepublishOnly": "npm run clean && npm run build:unmin && npm run build:min",
     "release": "standard-version --no-verify",
-    "test": "mocha"
+    "test": "mocha",
+    "prepublishOnly": "npm run clean && npm run build:unmin && npm run build:min",
+    "publish-to-verdaccio": "npm publish --registry http://deps.lawpath.net:4873"
   },
   "repository": {
     "type": "git",
